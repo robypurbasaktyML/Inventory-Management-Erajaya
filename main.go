@@ -2,7 +2,7 @@ package main
 
 import (
 	"Inventory-Management-Erajaya/config"
-	"Inventory-Management-Erajaya/logger"
+	"Inventory-Management-Erajaya/pkg/logger"
 	"database/sql"
 )
 
@@ -21,5 +21,10 @@ func main() {
 	if err := db.Ping(); err != nil {
 		log.Fatalf("failed to ping database: %v", err)
 	}
+
+	log.Info("connected to PostgreSQL")
+
+	// Run migration
+	migration.Run(db)
 
 }
