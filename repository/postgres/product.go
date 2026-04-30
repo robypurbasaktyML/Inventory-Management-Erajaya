@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"Inventory-Management/domain"
+	"Inventory-Management-Erajaya/domain"
 )
 
 type productRepository struct {
