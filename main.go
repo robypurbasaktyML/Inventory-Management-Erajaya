@@ -2,8 +2,11 @@ package main
 
 import (
 	"Inventory-Management-Erajaya/config"
+	"Inventory-Management-Erajaya/migration"
 	"Inventory-Management-Erajaya/pkg/logger"
+	"context"
 	"database/sql"
+	"github.com/redis/go-redis/v9"
 )
 
 func main() {
@@ -26,5 +29,14 @@ func main() {
 
 	// Run migration
 	migration.Run(db)
+
+	// Connect to Redis
+	rdb := redis.NewClient(&redis.Options{
+		Addr: cfg.RedisAddr,
+	})
+	if err := rdb.Ping(context.Background()).Err(); err != nil {
+		log.Fatalf("failed to connect to Redis: %v", err)
+	}
+	log.Info("connected to Redis")
 
 }
