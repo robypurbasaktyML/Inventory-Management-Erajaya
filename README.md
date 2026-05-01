@@ -95,7 +95,7 @@ Dengan pendekatan ini, dari 1000 concurrent request untuk 10 stock, hanya 10 yan
 
 ## Stress Test
 
-Stress test yang digunakan menggunakan locus
+Stress test dilakukan menggunakan locus, berkut hasil report dari stres test yang dilakukan:
 
 - Requet response statistic
 ![request-response](./asset/img/requet_response_statistic.png)
